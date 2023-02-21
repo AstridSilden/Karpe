@@ -6,6 +6,7 @@ using UnityEngine;
 public class CharacterInteraction : MonoBehaviour
 {
     [SerializeField] private Transform _originPoint;
+    [SerializeField] private GameObject conductor; 
     private InputReader _input;
 
     private void Start()
@@ -26,7 +27,6 @@ public class CharacterInteraction : MonoBehaviour
                 }
 
                 {
-                    print("Why hello there");
                     var handler = hit.collider.gameObject.GetComponent<InteractionHandler>();
                     if (handler != null) handler.InteractedWith();
                 }
