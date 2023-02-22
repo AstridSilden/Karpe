@@ -19,7 +19,7 @@ public class CharacterInteraction : MonoBehaviour
 
         if (Physics.Raycast(_originPoint.position, _originPoint.forward, out hit, 9))
         {
-            if (hit.collider.tag == "Interactable")
+            if (hit.collider.CompareTag("Interactable"))
             {
                 if (!_input.InteractButton)
                 {

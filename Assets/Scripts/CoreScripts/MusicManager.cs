@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-    private AudioSource _audioSource;
+    [SerializeField] AudioSource _audioSource;
     private CapsuleCollider _collider;
 
     [SerializeField] private List<AudioClip> _audioClips;
@@ -17,9 +17,15 @@ public class MusicManager : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
         _collider = GetComponent<CapsuleCollider>();
         
-        _audioSource.clip = (_audioClips[musicInteger]);
-        _audioSource.loop = true; 
-        _audioSource.Play();
+        _audioSource.PlayOneShot(_audioClips[musicInteger]);
+    }
+
+    private void Update()
+    {
+        if (!_audioSource.isPlaying)
+        {
+            _audioSource.PlayOneShot(_audioClips[musicInteger]);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
