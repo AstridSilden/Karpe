@@ -17,7 +17,9 @@ public class MusicManager : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
         _collider = GetComponent<CapsuleCollider>();
         
-        _audioSource.PlayOneShot(_audioClips[musicInteger]);
+        _audioSource.clip = (_audioClips[musicInteger]);
+        _audioSource.loop = true; 
+        _audioSource.Play();
     }
 
     private void OnTriggerEnter(Collider other)

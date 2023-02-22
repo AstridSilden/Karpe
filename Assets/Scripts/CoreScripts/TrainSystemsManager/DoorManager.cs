@@ -30,6 +30,7 @@ public class DoorManager : MonoBehaviour
         {
             _transform.position = new Vector3(_transform.position.x, (transform.position.y - 3), _transform.position.z);
             _collider.transform.position = new Vector3(defaultVector.x - 1, defaultVector.y, defaultVector.z);
+            _collider.isTrigger = true; 
         }
     }
     
@@ -38,9 +39,10 @@ public class DoorManager : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             canMove = false;
+            _collider.isTrigger = false;
             _transform.position = defaultVector;
+            _collider.transform.position = defaultVector;
             NPC.SetActive(false);
-            
         }
     }
 }
