@@ -26,7 +26,8 @@ public class MusicManager : MonoBehaviour
         {
             musicInteger = 1;
             _audioSource.Stop();
-            _audioSource.PlayOneShot(_audioClips[musicInteger]);
+            _audioSource.clip = (_audioClips[musicInteger]);
+            _audioSource.Play();
         }
     }
 }

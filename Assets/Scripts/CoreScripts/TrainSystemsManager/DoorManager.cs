@@ -9,12 +9,14 @@ public class DoorManager : MonoBehaviour
     [SerializeField] private GameObject NPC; 
 
     private Transform _transform;
+    private bool canMove; 
 
     private void Start()
     {
         _transform = GetComponent<Transform>();
         _collider = GetComponent<BoxCollider>();
         defaultVector = transform.position;
+        canMove = true;
     }
 
     private void Update()
@@ -24,7 +26,7 @@ public class DoorManager : MonoBehaviour
 
     private void UnlockDoor()
     {
-        if (_primaryInteractionCounter.MyInteractions == _primaryInteraction._audio.Count - 1)
+        if (_primaryInteractionCounter.MyInteractions == _primaryInteraction._audio.Count - 1 && canMove)
         {
             _transform.position = new Vector3(_transform.position.x, (transform.position.y - 3), _transform.position.z);
             _collider.transform.position = new Vector3(defaultVector.x - 1, defaultVector.y, defaultVector.z);
@@ -35,8 +37,10 @@ public class DoorManager : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            canMove = false;
             _transform.position = defaultVector;
             NPC.SetActive(false);
+            
         }
     }
 }
