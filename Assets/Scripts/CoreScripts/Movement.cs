@@ -90,14 +90,11 @@ public class Movement : MonoBehaviour
         }
         
         private void OnMovement() {
-            //Extra gravity
-            rb.AddForce(Vector3.down * Time.deltaTime * 10);
-            
-            //Find actual velocity relative to where player is looking
+           
             Vector2 mag = FindVelRelativeToLook();
             float xMag = mag.x, yMag = mag.y;
     
-            //Counteract sliding and sloppy movement
+            
             CounterMovement(x, y, mag);
             
             //Set max speed

@@ -10,17 +10,25 @@ public class ConductorQuip : MonoBehaviour
     [SerializeField] private ConductorQuipScrub QuipScrub;
     [SerializeField] private AudioClip _audioClip;
     private AudioSource _audioSource;
+    private bool canTalk; 
 
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
+        canTalk = true; 
     }
 
     private void Update()
     {
         if (otherCharacterLines.MyInteractions == QuipScrub.NeededInteraction && !_otherCharacterAudioSource.isPlaying)
         {
-            _audioSource.PlayOneShot(_audioClip);
+            if (!canTalk)
+            {
+                return;
+            }
+            _audioSource.clip = _audioClip;
+            _audioSource.Play();
+            canTalk = false; 
         }
     }
 }
