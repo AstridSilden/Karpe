@@ -22,8 +22,6 @@ public class MusicManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
-        print(other.name);
         if (other.CompareTag("MusicBox"))
         {
             print("MusicBox collision");

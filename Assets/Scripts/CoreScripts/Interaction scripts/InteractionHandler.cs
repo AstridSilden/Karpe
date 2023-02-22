@@ -6,7 +6,7 @@ public class InteractionHandler : MonoBehaviour
 {
     public CharacterInteractionCounter _interactionCounter;
     private AudioSource _audioSource;
-    [SerializeField] private List<AudioClip> _audio;
+    [SerializeField] public List<AudioClip> _audio;
     [SerializeField] private AudioSource _secondaryCharacter; 
 
     private void Start()
