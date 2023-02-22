@@ -5,7 +5,8 @@ public class DoorManager : MonoBehaviour
     [SerializeField] private CharacterInteractionCounter _primaryInteractionCounter;
     [SerializeField] private InteractionHandler _primaryInteraction;
     private BoxCollider _collider;
-    private Vector3 defaultVector; 
+    private Vector3 defaultVector;
+    [SerializeField] private GameObject NPC; 
 
     private Transform _transform;
 
@@ -26,6 +27,7 @@ public class DoorManager : MonoBehaviour
         if (_primaryInteractionCounter.MyInteractions == _primaryInteraction._audio.Count - 1)
         {
             _transform.position = new Vector3(_transform.position.x, (transform.position.y - 3), _transform.position.z);
+            _collider.transform.position = defaultVector;
         }
     }
     
@@ -34,6 +36,7 @@ public class DoorManager : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             _transform.position = defaultVector;
+            NPC.SetActive(false);
         }
     }
 }
