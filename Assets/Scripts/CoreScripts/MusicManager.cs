@@ -22,9 +22,8 @@ public class MusicManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("MusicBox"))
+        if (other.CompareTag("MusicBox") && musicInteger != 1)
         {
-            print("MusicBox collision");
             musicInteger = 1;
             _audioSource.Stop();
             _audioSource.PlayOneShot(_audioClips[musicInteger]);

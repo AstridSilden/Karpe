@@ -27,7 +27,7 @@ public class DoorManager : MonoBehaviour
         if (_primaryInteractionCounter.MyInteractions == _primaryInteraction._audio.Count - 1)
         {
             _transform.position = new Vector3(_transform.position.x, (transform.position.y - 3), _transform.position.z);
-            _collider.transform.position = defaultVector;
+            _collider.transform.position = new Vector3(defaultVector.x - 1, defaultVector.y, defaultVector.z);
         }
     }
     
