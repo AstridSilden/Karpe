@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: b301f65ba2f62eb47bda56053123fc5a
+  - enabled: 1
+    path: Assets/Scenes/TrymTestScene.unity
+    guid: afcb2c24f143c0d4995a4048160fd93a
+  - enabled: 1
+    path: Assets/Scenes/EndCreditsScene.unity
+    guid: 0aff282b6862d954a85fe9602f44a99d
   m_configObjects: {}
